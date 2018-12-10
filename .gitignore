@@ -77,6 +77,6 @@ typings/
 # IDE IntelliJ
 .idea
 
-dist/
+# dist/
 example/bundle*
 

@@ -27,6 +27,9 @@ npm install react-ui-tree --save
   paddingLeft={20}              // left padding for children nodes in pixels
   tree={this.state.tree}        // tree object
   onChange={this.handleChange}  // onChange(tree) tree object changed
+  onMove={this.handleMove}      // onMove({node, prevParent, nextParent, index})
+  onExpand={this.handleExpand}  // onExpand(node) expanded node
+  onCollapse={this.collapse}    // onCollapse(node) collapsed node
   renderNode={this.renderNode}  // renderNode(node) return react element
 />
 

@@ -338,13 +338,13 @@ function (_Component) {
           dragging = _this$state2.dragging,
           draggingFrom = _this$state2.draggingFrom;
       var node = tree$$1.getIndex(dragging.id);
-      var parentNode = tree$$1.getIndex(node.parent).node;
-      var moveData = {
+      var parentNode = node ? tree$$1.getIndex(node.parent).node : null;
+      var moveData = node && parentNode ? {
         subject: node.node,
         from: draggingFrom,
         to: parentNode,
         index: parentNode.children.indexOf(node.node)
-      };
+      } : null;
 
       _this.setState({
         dragging: {
@@ -359,7 +359,7 @@ function (_Component) {
 
       _this.change(_this.state.tree);
 
-      if (_this.props.onMove) {
+      if (moveData && _this.props.onMove) {
         _this.props.onMove(moveData);
       }
 
